@@ -1,0 +1,33 @@
+= rake_commit_tasks with java.rake
+
+java.rake file enhances rake_commit_tasks to be usable with java development. 
+
+If you are working on a java project with everything being built in ant you would not have the rake tasks available even after you install the rake_commit_tasks plugin. To facilitate the use of rake commit on your java project do the following
+
+1. Checkout this project
+2. Ensure that all rake commit code is in rake_commit_tasks folder.
+3. Ensure you have ruby and rake installed on your machine.
+4. run rake to build your application in java
+5. run rake commit to be able to use the goodness of rake commit
+
+
+
+== Installation
+
+  git clone git://github.com/betarelease/rake_commit_tasks.git rake_commit_tasks
+  rake commit
+  
+  By default the precommit task calls your 'ant <default>' target. 
+  You can add more targets to java.rake
+
+== Customization
+
+=== Preventing checkins on broken builds
+
+If you want the build to check your cruisecontrol instance and prompt you 
+before checking in on a broken build, set CCRB_RSS to the location of the RSS feed.
+
+For example, in your Rakefile:
+
+  CCRB_RSS = 'http://example.com:3333/projects.rss'
+
